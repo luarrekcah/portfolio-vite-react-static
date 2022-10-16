@@ -35,7 +35,7 @@ const Home = () => {
                   <code className={styles.code}>PROJETOS:</code>
               </p>
               <div className={styles.grid}>
-                  <a href="https://www.dlwalt.com" className={styles.card}>
+                  <a href="" className={styles.card}>
                       <h2 className={styles.badge}><i class="devicon-android-plain"></i></h2>
                       <h2>GeekNote &rarr;</h2>
                       <p>App destinado a Geeks, faça orçamento separando os itens em cards, com todas as infos básicas. Salve seu entretenimento favorito. Escreva notas, diário e muito mais!</p>
@@ -45,7 +45,6 @@ const Home = () => {
                           <i class="devicon-react-original"></i>
                           <i class="devicon-javascript-plain"></i>
                       </p>
-
                       <img
                             src="/pt-br_get.svg"
                             width={100}
