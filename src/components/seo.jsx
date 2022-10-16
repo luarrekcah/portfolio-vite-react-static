@@ -3,15 +3,9 @@ import SEO from "../seo.json";
 import { Helmet } from 'react-helmet-async';
 
 const Seo = () => {
-  // If url is set to 'glitch-default', we use the hostname for the current page
-  // Otherwise we use the value set in seo.json
   const url = SEO.url === 'glitch-default' ? window.location.hostname : SEO.url
-  
-  // React Helmet manages the content of the page head such as meta tags
-  // We use the async package https://github.com/staylor/react-helmet-async
   return <Helmet>
     <title>{SEO.title}</title>
-
     <meta
       name="description"
       content={SEO.description}
@@ -29,8 +23,8 @@ const Seo = () => {
       property="og:image"
       content={SEO.image}
     />
-
     <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"></link>
   </Helmet>
 };
 

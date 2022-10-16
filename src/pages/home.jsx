@@ -1,78 +1,65 @@
 import * as React from "react";
-import { animated } from "react-spring";
-import { useWiggle } from "../hooks/wiggle";
 import { Link } from "wouter";
+import styles from '../styles/Home.module.css'
 
-// Our language strings for the header
-const strings = [
-  "Hello React",
-  "Salut React",
-  "Hola React",
-  "안녕 React",
-  "Hej React"
-];
-
-// Utility function to choose a random value from the language array
-function randomLanguage() {
-  return strings[Math.floor(Math.random() * strings.length)];
-}
-
-/**
-* The Home function defines the content that makes up the main content of the Home page
-*
-* This component is attached to the /about path in router.jsx
-* The function in app.jsx defines the page wrapper that this appears in along with the footer
-*/
-
-export default function Home() {
-  /* We use state to set the hello string from the array https://reactjs.org/docs/hooks-state.html
-     - We'll call setHello when the user clicks to change the string
-  */
-  const [hello, setHello] = React.useState(strings[0]);
-  
-  /* The wiggle function defined in /hooks/wiggle.jsx returns the style effect and trigger function
-     - We can attach this to events on elements in the page and apply the resulting style
-  */
-  const [style, trigger] = useWiggle({ x: 5, y: 5, scale: 1 });
-
-  // When the user clicks we change the header language
-  const handleChangeHello = () => {
-    
-    // Choose a new Hello from our languages
-    const newHello = randomLanguage();
-    
-    // Call the function to set the state string in our component
-    setHello(newHello);
-  };
+const Home = () => {
   return (
-    <>
-      <h1 className="title">{hello}!</h1>
-      {/* When the user hovers over the image we apply the wiggle style to it */}
-      <animated.div onMouseEnter={trigger} style={style}>
-        <img
-          src="https://cdn.glitch.com/2f80c958-3bc4-4f47-8e97-6a5c8684ac2c%2Fillustration.svg?v=1618196579405"
-          className="illustration"
-          onClick={handleChangeHello}
-          alt="Illustration click to change language"
-        />
-      </animated.div>
-      <div className="navigation">
-        {/* When the user hovers over this text, we apply the wiggle function to the image style */}
-        <animated.div onMouseEnter={trigger}>
-          <a className="btn--click-me" onClick={handleChangeHello}>
-            Psst, click me
-          </a>
-        </animated.div>
+      <div className={styles.container}>
+          <main className={styles.main}>
+              <h1 className={styles.title}>
+                  Olá! Eu sou <b>Raul Rodrigues</b>.
+              </h1>
+              <p className={styles.description}>
+                  <code className={styles.code}>Designer Gráfico & desenvolvedor full-stack web/mobile</code>
+              </p>
+              <div>
+
+              <img
+                        src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"
+                        width={150}
+                        height={40}
+                        alt='JavaScript' />
+                    <img
+                        src="https://camo.githubusercontent.com/a1eae878fdd3d1c1b687992ca74e5cac85f4b68e60a6efaa7bc8dc9883b71229/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e6f64652e6a732d3333393933333f7374796c653d666f722d7468652d6261646765266c6f676f3d6e6f6465646f746a73266c6f676f436f6c6f723d7768697465"
+                        width={150}
+                        height={40}
+                        alt='Nodejs' />
+                    <img
+                        src="https://camo.githubusercontent.com/268ac512e333b69600eb9773a8f80b7a251f4d6149642a50a551d4798183d621/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656163742d3230323332413f7374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d363144414642"
+                        width={150}
+                        height={40}
+                        alt='React' />
+                
+              </div>
+              <p className={styles.description}>
+                  <code className={styles.code}>PROJETOS:</code>
+              </p>
+              <div className={styles.grid}>
+                  <a href="https://www.dlwalt.com" className={styles.card}>
+                      <h2 className={styles.badge}><i class="devicon-android-plain"></i></h2>
+                      <h2>GeekNote &rarr;</h2>
+                      <p>App destinado a Geeks, faça orçamento separando os itens em cards, com todas as infos básicas. Salve seu entretenimento favorito. Escreva notas, diário e muito mais!</p>
+                      <br />
+                      <b>Desenvolvido com:</b>
+                      <p>
+                          <i class="devicon-react-original"></i>
+                          <i class="devicon-javascript-plain"></i>
+                      </p>
+
+                      <img
+                            src="/pt-br_get.svg"
+                            width={100}
+                            height={100}
+                            alt='Disponível na PlayStore' />
+                     
+                  </a>
+              </div>
+              <p className={styles.description}>
+                  <code className={styles.code}>CONTATO:</code>
+              </p>
+          </main>
       </div>
-      <div className="instructions">
-        <h2>Using this project</h2>
-        <p>
-          This is the Glitch <strong>Hello React</strong> project. You can use
-          it to build your own app. See more info in the{" "}
-          <Link href="/about">About</Link> page, and check out README.md in the
-          editor for additional detail plus next steps you can take!
-        </p>
-      </div>
-    </>
-  );
-}
+  )
+};
+
+export default Home;
